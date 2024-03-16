@@ -1,0 +1,16 @@
+spring:
+ 
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+
+rest:
+  ios:
+    url: http://localhost:8101/push-notification/notifications/sendAndroid/
+  android:
+    url: http://localhost:8101/push-notification/notifications/sendAndroid/
+  database:
+    url: http://172.25.3.43:8101/push-notification/credential/get/1
+proxy:
+  server:
+    host: 192.168.7.83
+    port: 8082

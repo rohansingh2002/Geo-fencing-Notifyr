@@ -1,0 +1,26 @@
+
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+    open-in-view: true
+
+  datasource:
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 50
+      idle-timeout: 100000
+      pool-name: rest-api-pool
+  transaction:
+    default-timeout: 90000
+
+
+rest:
+  database:
+    url: http://65.1.106.248:8082/engage-server/credential/get/1
+
+

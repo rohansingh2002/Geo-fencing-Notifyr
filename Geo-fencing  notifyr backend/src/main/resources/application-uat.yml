@@ -1,0 +1,24 @@
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    open-in-view: false
+
+  datasource:
+    url: jdbc:oracle:thin:@oracle-db.cvf0554bl57w.ap-south-1.rds.amazonaws.com:1521:ORACLEDB
+    username: admin
+    password: Admin#123
+  hikari:
+    minimum-idle: 5
+    maximum-pool-size: 20
+    idle-timeout: 10000
+    pool-name: rest-api-pool
+    transaction:
+      default-timeout: 30000
+
+
+rest:
+  ios:
+    url: http://localhost:8082/push-notification/notifications/sendAndroid/
+  android:
+    url: http://localhost:8082/push-notification/notifications/sendAndroid/

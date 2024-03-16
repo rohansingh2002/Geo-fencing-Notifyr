@@ -1,0 +1,68 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: engage-messenger-apis
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 100
+        # show_sql: true
+        # format_sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hdabhade7@gmail.com
+    password: yxqglgbwfpsyrjfa
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    hikari:
+      auto-commit: true
+      # maximum-pool-size: 50
+      # minimum-idle: 5
+      pool-name: rest-api-pool
+      # idle-timeout: 10000
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 1800000
+      connectionTimeout: 100000
+      leakDetectionThreshold: 300000
+      cachePrepStmts: true
+      useServerPrepStmts: true
+
+  
+logging:
+  level:
+    org:
+      hibernate:
+        type: info
+      
+  transaction:
+    default-timeout: 90000
+
+
+query:
+  select:
+    messenger: select id, customer_id, device_id, device_name, email_id, mobile_no, is_notification_on, os_name, full_name, var1, var2, var3, language from engage_subscription where is_notification_on ='YES'  
+  update:
+    mis: update engage_execution_mis set response_id= ?, delivered_status= ?, updated_at= ? where exe_Id = ? and customer_id =?
+  
+
+
+pool:
+  thread:
+    size: 50
+
+insert:
+  batch:
+    size: 100
+    
+
+    
